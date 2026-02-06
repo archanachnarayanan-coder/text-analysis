@@ -1,0 +1,20 @@
+{
+  "name": "text-analysis-app",
+  "version": "1.0.0",
+  "description": "Full-stack text analysis app with /length and /num_vowels APIs and OpenTelemetry",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "start:server": "node server/index.js"
+  },
+  "private": true,
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.0",
+    "@opentelemetry/api": "^1.9.0",
+    "@opentelemetry/auto-instrumentations-node": "^0.45.0",
+    "@opentelemetry/resources": "^1.26.0",
+    "@opentelemetry/sdk-node": "^0.52.0",
+    "@opentelemetry/sdk-trace-node": "^1.26.0"
+  }
+}

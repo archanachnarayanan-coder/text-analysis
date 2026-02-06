@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Text Analysis</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Text Analysis</h1>
+    </div>
+
+    <div class="card">
+      <form id="form">
+        <label for="text-input">Enter text to analyze</label>
+        <div class="input-wrap">
+          <input type="text" id="text-input" name="text" placeholder="Type your text here..." autocomplete="off" autofocus />
+          <button type="button" id="input-clear" class="input-clear hidden" aria-label="Clear text" title="Clear">×</button>
+        </div>
+        <button type="submit" id="submit-btn">Submit</button>
+      </form>
+    </div>
+
+    <div id="error-area" class="card result-card--error hidden">
+      <p class="error" id="error-message"></p>
+    </div>
+
+    <div id="results-area" class="hidden">
+      <div class="results">
+        <div class="card result-card">
+          <h2 class="result-title">Character length</h2>
+          <p class="result-value" id="length-value">—</p>
+          <p class="result-error hidden" id="length-error"></p>
+        </div>
+        <div class="card result-card">
+          <h2 class="result-title">Vowel count</h2>
+          <p class="result-value" id="vowel-value">—</p>
+          <p class="result-error hidden" id="vowel-error"></p>
+        </div>
+      </div>
+    </div>
+
+    <div id="history-area" class="card">
+      <h2 class="result-title">Session history</h2>
+      <p class="history-hint">Last 10 analyses (cleared on refresh)</p>
+      <ul id="history-list" class="history-list"></ul>
+    </div>
+  </div>
+
+  <!-- OpenTelemetry Client Instrumentation -->
+  <script src="/telemetry-client.js"></script>
+  <!-- Main Application Script -->
+  <script src="/app.js"></script>
+</body>
+</html>
