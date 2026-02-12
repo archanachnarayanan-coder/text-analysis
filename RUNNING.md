@@ -20,7 +20,7 @@ Start both the API server and the web UI with a single command:
 npm start
 ```
 
-Then open **http://localhost:3000** in your browser.
+This builds the frontend (Vite) and starts the server. Then open **http://localhost:3000** in your browser.
 
 - The server serves the API endpoints (`POST/GET /length`, `POST/GET /num_vowels`) and the static web UI.
 - Enter text in the form and click **Submit** to see character length and vowel count from two concurrent API calls.
@@ -32,7 +32,7 @@ Then open **http://localhost:3000** in your browser.
 npm run start:server
 ```
 
-The API will be available at http://localhost:3000 (no UI at the root unless you serve `public/` elsewhere).
+The API will be available at http://localhost:3000 (builds frontend and serves from `dist/`).
 
 ---
 
@@ -49,7 +49,7 @@ The API will be available at http://localhost:3000 (no UI at the root unless you
   - **Validation:** Text must be non-empty after trimming; length is capped at 100,000 characters.
   - All four endpoints (`GET/POST /length`, `GET/POST /num_vowels`) use the same helper. Invalid input returns `400` with a clear `error` message in the JSON body (e.g. "Text is required and cannot be empty after trimming." or "Text must be at most 100,000 characters...").
 
-- **Client (`public/app.js`):**
+- **Client (`src/app.js`):**
   - Same rules: trim, non-empty, max 100,000 characters. Control characters are stripped before sending.
   - Validation runs on submit; if invalid, the error message from `validateInput()` is shown in the UI and no API calls are made.
 

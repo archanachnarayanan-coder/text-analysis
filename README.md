@@ -7,6 +7,6 @@ Full-stack app that demonstrates:
 - **Server**: Node.js with two REST endpoints:
   - `GET` or `POST` `/length` — accepts text (query or body), returns `{"length": number}`.
   - `GET` or `POST` `/num_vowels` — accepts text (query or body), returns `{"vowel_count": number}` (a, e, i, o, u, case insensitive).
-- **OpenTelemetry**: Server-side auto-instrumentation with console trace exporter; spans for each endpoint.
+- **OpenTelemetry**: Server-side auto-instrumentation; client-side auto-instrumentation (fetch, XHR, etc.) via @opentelemetry/auto-instrumentations-web; trace context propagation to server.
 
 See **RUNNING.md** for setup and run instructions.

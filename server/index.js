@@ -1,6 +1,6 @@
 /**
  * Text Analysis API server.
- * Serves: POST/GET /length, POST/GET /num_vowels, and static UI from public/
+ * Serves: POST/GET /length, POST/GET /num_vowels, and static UI from dist/
  * OpenTelemetry is loaded first via telemetry.js so HTTP is instrumented.
  */
 require('./telemetry');
@@ -17,12 +17,13 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
-const publicDir = path.join(__dirname, '..', 'public');
-app.use(express.static(publicDir));
+// Serve built frontend (Vite outputs to dist/)
+const distDir = path.join(__dirname, '..', 'dist');
+app.use(express.static(distDir));
 
 // Ensure root URL always serves the app
 app.get('/', (req, res) => {
-  res.sendFile(path.join(publicDir, 'index.html'));
+  res.sendFile(path.join(distDir, 'index.html'));
 });
 
 function getRawText(req) {

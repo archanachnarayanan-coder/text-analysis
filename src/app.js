@@ -162,14 +162,14 @@ form.addEventListener('submit', async (e) => {
   errorArea.classList.add('hidden');
   resultsArea.classList.add('hidden');
 
-  // Create parent span for the form submission
+  // Create parent span for the form submission (manual span for business context)
   const parentSpan = window.otelTracer ? window.otelTracer.startSpan('form_submit') : null;
   if (parentSpan) {
     parentSpan.setAttribute('user_input_length', text.length);
   }
 
   try {
-    // Create spans for concurrent API calls
+    // Create child spans for concurrent API calls (fetch auto-instrumentation also creates spans)
     const lengthSpan = window.otelTracer ? window.otelTracer.startSpan('fetch_length_api') : null;
     const vowelSpan = window.otelTracer ? window.otelTracer.startSpan('fetch_vowels_api') : null;
 
